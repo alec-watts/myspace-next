@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./NavMenu.module.css";
+import { SignInButton, SignOutButton } from "@/components/buttons";
 
 export default function NavMenu() {
   return (
@@ -14,10 +15,14 @@ export default function NavMenu() {
           <Link href={"/about"}>About</Link>
         </li>
         <li>
-          <Link href={"/blog"}>blog</Link>
+          <Link href={"/blog"}>Blog</Link>
         </li>
         <li>
           <Link href={"/users"}>Users</Link>
+        </li>
+        {/* Putting client components on leave of component tree. Maximizing the amount of server component code */}
+        <li>
+          <SignInButton/>
         </li>
       </ul>
     </nav>

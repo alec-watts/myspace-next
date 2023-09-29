@@ -27,8 +27,14 @@ const posts = [
   },
 ];
 
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
-export function GET() {
+export async function GET() {
+  const session = await getServerSession();
+
+  if (!session) {
+    return NextResponse.json("Not logged in");
+  }
   return NextResponse.json(posts);
 }
